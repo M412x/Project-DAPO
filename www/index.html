@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Security-Policy" content="connect-src https://api.mapbox.com/ https://api.openweathermap.org/ https://dapo.bnshosting.net/ 'self' data:;">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+		<link rel="stylesheet" href="css/bootstrap-4.3.1.min.css">
+		<link rel="stylesheet" href="css/index.css">
+		<link rel="stylesheet" href="css/leaflet.css"/>
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"/>
+		<script src="js/leaflet.js"></script>
+		<script src="js/leaflet-heat.js"></script>
+		<script src="js/jquery-3.4.1.min.js"></script>
+		<script src="js/popper-1.14.7.min.js"></script>
+		<script src="js/bootstrap-4.3.1.min.js"></script>
+		<script src="js/movingmarker.js"></script>
+		<script src="https://dapo.bnshosting.net/api/points.php"></script>
+        <title>DAPO</title>
+    </head>
+    <body>
+	<div class="tutorial">
+		<div class="page1" id="page1">
+			<img src="img/tutorial-logo.png" alt="" class="tutorial-image">
+			<br><br>
+			<div class="font-weight-bold tutorial-title">
+				INTRODUCTION
+			</div>
+			<div class="tutorial-description">
+				Project DAPO is a community project which will be using the user's data to enumerate mosquito hotspots in order to effectively prevent the increasing dengue cases in the Philippines.
+			</div>
+		</div>
+		<div class="page2" id="page2">
+			<img src="img/map-geometry.png" alt="" class="tutorial-image">
+			<br><br>
+			<div class="font-weight-bold tutorial-title">
+				DATA-DRIVEN
+			</div>
+			<div class="tutorial-description">
+				Mosquito sighting and biting cases will be plotted in order to inform users if there is a vast number of mosquito sightings in their area.
+			</div>
+		</div>
+		<div class="page3" id="page3">
+			<img src="img/eye-syringe.png" alt="" class="tutorial-image">
+			<br><br>
+			<div class="font-weight-bold tutorial-title">
+				CONTRIBUTE
+			</div>
+			<div class="tutorial-description">
+				Help by reporting mosquito sightings and biting cases to warn other users. <br>
+				Click on the: <br>
+				<i class="fa fa-eye"></i> - if you have seen a mosquito <br>
+				<i class="fa fa-syringe"></i> - if you have been bitten
+			</div>
+		</div>
+		<div class="tutorial-progress">
+			<span id="circle1">•</span>
+			<span id="circle2">•</span>
+			<span id="circle3">•</span>
+		</div>
+		<button class="tutorial-button-next rounded-pill" id="next">
+			Next
+		</button>
+	</div>
+	<div class="app-area">
+		<div class="modal fade" id="results" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content">
+					<div class="result-title text-center pt-3">
+						RESULTS
+					</div>
+					<div class="modal-body">
+						<div class="row">
+							<div class="col-8" id="result" style="padding: 0 10px; padding-right: 0;">
+							</div>
+							<div class="col-4 p-0 m-0">
+								<img src="img/logo.png" style="height: 130px; width: auto">
+							</div>
+						</div>
+					</div>
+					<div align="center" class="mb-3">
+						<div style="padding: 0; margin: 0; font-size: .69rem">
+							Help by downloading the app at
+						</div>
+						<div style="padding: 0; margin: 0; font-size: .69rem">
+							DAPO.bnshosting.net
+						</div>
+						<div style="padding: 0; margin: 0; font-size: .69rem">
+							Proudly Hosted at <a href="https://www.bnshosting.net">BNSHosting.net</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="spinner-area" style="display: none">
+			<div class="spinner"></div>
+			<div class="spinner1"></div>
+		</div>
+		<div id="header-success" class="header-success" style="display: none"></div>
+		<div id="header-warning" class="header-warning" style="display: none"></div>
+		<div id="header-danger" class="header-danger" style="display: none"></div>
+		<div id="header-info" class="header-info" style="display: none"></div>
+		<div id="map" class="map"></div>
+		<div class="background-light">
+		</div>
+		<div class="background-dark hidden">
+		</div>
+		<div class="menu">
+			<a id="center" href="#"><i class="fas fa-location-arrow"></i></a>
+			<a id="bitten" href="#"><i class="fas fa-syringe"></i></a>
+			<a id="seen" href="#"><i class="far fa-eye"></i></a>
+			<a id="night" href="#"><i id="nightIcon" class="far fa-moon"></i></a>
+			<span class="menu-btn fas fa-bars"></span>
+		</div>
+	</div>
+		<script src="cordova.js"></script>
+		<script src="js/index.js"></script>
+    </body>
+</html>
+<script>
+	$('.tutorial').hide();
+</script>
